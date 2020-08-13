@@ -1,0 +1,27 @@
+
+int triggerPin = 12;
+int echoPin = 12; 
+int Duracion;    
+int Distancia;
+
+void setup(){
+
+long readUltrasonicDistance(int triggerPin, int echoPin);  
+pinMode(triggerPin, OUTPUT);
+pinMode(echoPin, INPUT);
+Serial.begin(9600);
+}
+
+void loop(){
+  
+  
+  digitalWrite(triggerPin, HIGH);
+  delay(1);
+  digitalWrite(triggerPin, LOW);
+  
+
+  Duracion = pulseIn(echoPin,HIGH); 
+  Distancia = Duracion/58.2;  
+  
+  
+}
