@@ -1,0 +1,27 @@
+
+int triggerPin = 12;//TRASMISOR ULTRASONICO CONECTADO A PIN 12
+int echoPin = 12; // RECEPTOR ULTRASONICO CONECADO  A PIN 12
+int Duracion;    //
+int Distancia;
+
+void setup(){
+// DEFINIR VARIABLES DE ENTRADA Y SALIDA
+long readUltrasonicDistance(int triggerPin, int echoPin);  
+pinMode(triggerPin, OUTPUT);
+pinMode(echoPin, INPUT);
+Serial.begin(9600);// COMUNICACION SERIAL 9600 BITS POR SEGUNDO
+}
+
+void loop(){
+  
+  //SE DEFINE QUE TRIGGERPIN EMITA UN PULSO
+  digitalWrite(triggerPin, HIGH);
+  delay(1);
+  digitalWrite(triggerPin, LOW);
+  
+  //FUNCION pulseIn DEVUELVE UN VALOR EN ms QUE SE ASIGNA A DURACION
+  Duracion = pulseIn(echoPin,HIGH); 
+  Distancia = Duracion/58.2; // DIVISON 58.2 PARA OBTENER DISTNCIA EN cm por el fabricante 
+  
+  
+}
